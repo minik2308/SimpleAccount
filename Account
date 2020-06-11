@@ -1,0 +1,34 @@
+class Account:
+
+    def __init__(self, owner, balance):
+       self.owner = owner
+       self.balance = balance
+       print("Hello {}. Your Acc Balance is: {}".format(self.owner,self.balance))
+       self.anotherTX()
+
+    def submit(self,money):
+       self.balance=self.balance+money
+       print("Account Credited\nNew Balance: {}".format(self.balance))
+
+    def withdrawl(self,balance,money):
+       if balance<money:
+           print("Insufficient fund")
+       else:
+           self.balance=self.balance-money
+           print("Account Debited\nNew Balance: {}".format(self.balance))
+
+    def anotherTX(self):
+       inp=input("Want to make another TX Y/N ")
+       if inp=='Y':
+           if input("Deposit (D) /Withdraw (W)")=='D':
+               sub=float(input("Enter amount to deposit: "))
+               self.submit(sub)
+               self.anotherTX()
+           else:
+               wit=float(input("Enter amount to withdraw: "))
+               self.withdrawl(self.balance,wit)
+               self.anotherTX()
+       else:
+           print("Thank you")
+
+acc=Account(input("Enter Name: "),float(input("Enter initial deposit ")))
