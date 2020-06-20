@@ -1,0 +1,24 @@
+if __name__ == '__main__':
+    s = input()
+    alpha=0
+    digi=0
+    low=0
+    upp=0
+    aln=0
+    if 0<len(s)<1000:
+        for i in range(len(s)):
+            if s[i].isalnum():
+                aln+=1
+            if s[i].isalpha():
+                alpha+=1
+            if s[i].isdigit():
+                digi+=1
+            if s[i].islower():
+                low+=1
+            if s[i].isupper():
+                upp+=1
+    print(aln>0)
+    print(alpha>0)
+    print(digi>0)
+    print(low>0)
+    print(upp>0)
