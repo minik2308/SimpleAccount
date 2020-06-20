@@ -1,21 +1,15 @@
 def print_formatted(number):
     # your code goes here
-    s=str(format(number,'0b'))
-    p=len(s)
-    for i in range(1,number+1):
-        if i<10:
-            print(str(i).rjust(2," "),end=" ")
-        else:
-            print(i,end=" ")
-        if i<8:
-            print(str(format(i,'0o')).rjust(2,' '),end=" ")
-        else:
-            print(format(i,'0o'),end=" ")
-        if i<16:
-            print(str(format(i,'0X')).rjust(2,' '),end=" ")
-        else:
-            print(format(i,'0X'),end=" ")
-        print(str(format(i,'0b')).rjust(p,' '))
+    b=len(str(format(number,'0b')))
+    h=len(str(format(number,'0X')))
+    o=len(str(format(number,'0o')))
+    d=len(str(format(number)))
+    if 0<number<100:
+        for i in range(1,number+1):
+            print(str(i).rjust(d,' '),end=" ")
+            print(str(format(i,'0o')).rjust(o,' '),end=" ")
+            print(str(format(i,'0X')).rjust(h,' '),end=" ")
+            print(str(format(i,'0b')).rjust(b,' '))
 
 if __name__ == '__main__':
     n = int(input())
