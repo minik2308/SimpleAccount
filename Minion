@@ -1,0 +1,27 @@
+def minion_game(string):
+    # your code goes here
+    lis=[]
+    lik=[]
+    for i in string:
+        if i in ['A','E','I','O','U']:
+            print(string[string.index(i):])
+            for j in range(string.index(i)+1,(len(string))+1):
+                lik.append(string[string.index(i):j])
+            print(lik)
+            string=string.replace(i,'',1)
+        else:
+            print(string[string.index(i):])
+            for k in range(string.index(i)+1,(len(string))+1):
+                lis.append(string[string.index(i):k])
+            print(lis)
+            string=string.replace(i,'',1)
+    if len(lis)>len(lik):
+        print("Stuart {}".format(len(lis)))
+    elif len(lis)==len(lik):
+        print("Draw")
+    else:
+        print("Kevin {}".format(len(lik)))
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
